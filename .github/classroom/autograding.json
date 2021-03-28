@@ -1,0 +1,104 @@
+{
+  "tests": [
+    {
+      "name": "01",
+      "setup": "make soal-02",
+      "run": "./soal-02",
+      "input": "lima\r\nhamil",
+      "output": "Kata lima tidak palindrom.\r\nKata hamil tidak palindrom.\r\n\r\nGabungan kedua kata palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "02",
+      "setup": "",
+      "run": "./soal-02",
+      "input": "hamil\r\nlima",
+      "output": "Kata hamil tidak palindrom.\r\nKata lima tidak palindrom.\r\n\r\nGabungan kedua kata tidak palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "03",
+      "setup": "",
+      "run": "./soal-03",
+      "input": "harum\r\nmurah",
+      "output": "Kata harum tidak palindrom.\r\nKata murah tidak palindrom.\r\n\r\nGabungan kedua kata palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "04",
+      "setup": "",
+      "run": "./soal-02",
+      "input": "mentor\r\nwadigidaw",
+      "output": "Kata mentor tidak palindrom.\r\nKata wadigidaw palindrom.\r\n\r\nGabungan kedua kata tidak palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "05",
+      "setup": "",
+      "run": "./soal-02",
+      "input": "ubi\r\nibu",
+      "output": "Kata ubi tidak palindrom.\r\nKata ibu tidak palindrom.\r\n\r\nGabungan kedua kata palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "06",
+      "setup": "",
+      "run": "./soal-02",
+      "input": "PPMC\r\nasik",
+      "output": "Kata PPMC tidak palindrom.\r\nKata asik tidak palindrom.\r\n\r\nGabungan kedua kata tidak palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "07",
+      "setup": "",
+      "run": "./soal-02",
+      "input": "kasur\r\nrusak",
+      "output": "Kata kasur tidak palindrom.\r\nKata rusak tidak palindrom.\r\n\r\nGabungan kedua kata palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "08",
+      "setup": "",
+      "run": "./soal-02",
+      "input": "pull\r\nup",
+      "output": "Kata pull tidak palindrom.\r\nKata up tidak palindrom.\r\n\r\nGabungan kedua kata palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "09",
+      "setup": "",
+      "run": "./soal-02",
+      "input": "makam\r\nmalam",
+      "output": "Kata makam palindrom.\r\nKata malam palindrom.\r\n\r\nGabungan kedua kata tidak palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "10",
+      "setup": "",
+      "run": "./soal-02",
+      "input": "01/11/10\r\nracecar",
+      "output": "Kata 01/11/10 palindrom.\r\nKata racecar palindrom.\r\n\r\nGabungan kedua kata tidak palindrom.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    }
+  ]
+}
