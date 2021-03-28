@@ -9,22 +9,59 @@ struct Node{
 };
  
 void reverse(struct Node**);
+bool cekList(struct Node*, struct Node*);
 bool palindrom(struct Node* head);
 void push(struct Node** newHead, char *word);
 void gabungLists(struct Node* head1,struct Node* head2);
  
 // fungsi mengecek suatu linked list palindrom atau tidak
 bool palindrom(struct Node* head){
-    // Isi dengan implementasi Anda!
-    // Bisa menambahkan fungsi lain untuk mempermudah fungsi ini
-}
+    struct Node* slow_ptr = head; 
+    struct Node* fast_ptr = head;
+    struct Node* second_half;
+    struct Node* prev_of_slow_ptr = head;
+    struct Node* midnode = NULL; // untuk menyimpan data tengah linked list ganjil
+    
+    bool hasil = true; // hasil penentuan linked list palindrom
 
-// fungsi untuk menggabungkan 2 buah linked list dalam salah satu linked list
-// linked list head2 akan digabung ke linked list head1
-void gabungLists(struct Node* head1,struct Node* head2){
-    // Isi dengan implementasi Anda!
-}
+    // linked list memiliki data
+    if (head != NULL && head->next != NULL) {
+        // mengambil data tengah dari list
+        while (fast_ptr != NULL && fast_ptr->next != NULL) {
+            fast_ptr = fast_ptr->next->next;
  
+            // untuk elemen ganjil
+            prev_of_slow_ptr = slow_ptr;
+            slow_ptr = slow_ptr->next;
+        }
+
+        // kalau linked list genap fast_ptr menjadi NULL
+        // menyimpan node tengah linked list ganjil di midnode
+        if (fast_ptr != NULL) {
+            midnode = slow_ptr;
+            slow_ptr = slow_ptr->next;
+        }
+ 
+        // komparasi huruf
+        second_half = slow_ptr;
+        prev_of_slow_ptr->next = NULL; 
+        reverse(&second_half); 
+        hasil = cekList(head, second_half); 
+ 
+        // mengembalikan data dalam linked list ke posisi semula
+        reverse(&second_half); 
+ 
+        // untuk data tengah linked list ganjil
+        if (midnode != NULL){
+            prev_of_slow_ptr->next = midnode;
+            midnode->next = second_half;
+        }
+        else{
+            prev_of_slow_ptr->next = second_half;
+        }
+    }
+    return hasil;
+}
  
 // fungsi membalikkan isi linked list
 void reverse(struct Node** head){
@@ -41,6 +78,31 @@ void reverse(struct Node** head){
 
     *head = prev;
     return;
+}
+
+ 
+// fungsi mengecek dua buah linked list mempunyai data yang sama atau tidak
+bool cekList(struct Node* head1, struct Node* head2){
+    struct Node* temp1 = head1;
+    struct Node* temp2 = head2;
+ 
+    while (temp1 && temp2){
+        // jika data sama, akan dilanjutkan pengecekan
+        if (temp1->data == temp2->data){
+            temp1 = temp1->next;
+            temp2 = temp2->next;
+        }else{
+            return 0; // jika tidak maka akan dikembalikan salah
+        }
+    }
+ 
+    // Kalau keduanya sampai di akhir (benar)
+    if (temp1 == NULL && temp2 == NULL){
+        return 1;
+    }
+    
+    // jika tidak akan dikembalikan salah
+    return 0;
 }
 
 
@@ -63,6 +125,20 @@ void push(struct Node** newHead, char *word){
 }
 
 
+// fungsi untuk menggabungkan 2 buah linked list dalam salah satu linked list
+// linked list head2 akan digabung ke linked list head1
+void gabungLists(struct Node* head1,struct Node* head2){
+    if(head1 != NULL && head2 != NULL ){ // jika a dan b memiliki isi
+        // menggabungkan tail list dari a dengan b
+        if (head1->next == NULL){
+            head1->next = head2;
+        }
+        else{ // jika a->next tidak null maka akan diiterasi
+            gabungLists(head1->next,head2);
+        }
+    }
+}
+ 
 
 int main(){
     struct Node* head1 = NULL;
