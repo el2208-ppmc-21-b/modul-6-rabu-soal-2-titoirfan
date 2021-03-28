@@ -23,7 +23,7 @@
     {
       "name": "03",
       "setup": "",
-      "run": "./soal-03",
+      "run": "./soal-02",
       "input": "harum\r\nmurah",
       "output": "Kata harum tidak palindrom.\r\nKata murah tidak palindrom.\r\n\r\nGabungan kedua kata palindrom.",
       "comparison": "included",
